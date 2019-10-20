@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {box-sizing: border-box}
+
+body, html {
+overflow-y: scroll;
+  height: 100%;
+  margin: 0;
+  font-family: Arial;
+}
+.square {
+  background-color: #AA837B;
+  width: 500px;
+  height: 700px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 500px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+  
+.tablink {
+  background-color: #555;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size:30px;
+  width:50%;
+}
+
+.tablink:hover {
+  background-color: #AA837B;
+}
+.tabcontent {
+  color:white ;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+#Login {background-color: #AA837B;}
+#Signup {background-color: #AA837B;}
+</style>
+</head>
+<body>
+<div class="square">
+
+<button class="tablink" onclick="openPage('Login', this, '#777')">Login</button>
+<button class="tablink" onclick="openPage('Signup', this, '#777')" id="defaultOpen">Signup</button>
+
+
+<div id="Login" class="tabcontent">
+  <form action="action_page.php" method="post">
+ 
+
+  <div class="container">
+    <label for="uname"><p>Username</p>
+    </label>
+    <input type="text" placeholder="Enter Username" name="uname" required>
+
+    <label for="psw"><p>Password</p>
+    </label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <button type="submit"><p>Login</p></button>
+    
+  </div>
+  
+</form>
+</div>
+<div id="Signup" class="tabcontent">
+  <form class="modal-content" action="/action_page.php">
+    <div class="container">
+     
+      <p>Please fill in this form to create an account.</p>
+      <hr>
+      <p>First Name*</p>
+      <input type="text" name="first name"> 
+      <p> Last Name*</p>
+      <input type="text" name="last name">
+      <p>Email*</p>
+      <input type="email" value="" required>
+
+      <p>Password*</p>
+      <input type="password" name="psw" required>
+<div class="clearfix">
+        
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </div>
+  </form>
+</div>
+</div>
+    <img src="final2.jpg" alt="final2" width="100%" height="100%">
+
+<script>
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
